@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia & Peter — Engagement Celebration</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        knotBg: '#FAF9F6',
+                        knotCard: '#FFFFFF',
+                        knotBorder: '#E5E0D8',
+                        knotText: '#2A2A2A',
+                        knotMuted: '#666666',
+                        knotOlive: '#5B6447',
+                        knotGold: '#C5A059',
+                        knotLightSage: '#F2F4EF'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF9F6;
+            color: #2A2A2A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .backdrop-knot {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out, padding 0.35s ease;
+        }
+        .accordion-content.active {
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body class="antialiased text-knotText">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-40 backdrop-knot border-b border-knotBorder shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+            <a href="#hero" class="font-cormorant text-2xl sm:text-3xl font-medium tracking-wide text-knotText flex items-center gap-1.5 py-1">
+                Julia <span class="text-knotOlive italic font-normal">&amp;</span> Peter
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs uppercase tracking-[0.2em] text-knotText font-semibold">
+                <a href="#hero" class="hover:text-knotOlive transition-colors py-2">Home</a>
+                <a href="#details" class="hover:text-knotOlive transition-colors py-2">Details</a>
+                <a href="#faq" class="hover:text-knotOlive transition-colors py-2">Q + A</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Trigger Knot-Style Modal -->
+                <button onclick="openRsvpModal()" class="bg-knotOlive hover:bg-[#4a5238] text-white font-medium text-[11px] sm:text-xs uppercase tracking-[0.2em] px-6 min-h-[48px] flex items-center justify-center rounded-sm transition-all duration-300 shadow-sm hover:shadow">
+                    RSVP
+                </button>
+
+                <!-- Mobile Nav Toggle -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-knotText text-xl p-2 min-h-[48px] min-w-[48px] flex items-center justify-center focus:outline-none" aria-label="Toggle menu">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-knotBorder px-6 py-4 space-y-3 shadow-lg">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-[0.2em] text-knotText hover:text-knotOlive py-2 font-medium">Home</a>
+            <a href="#details" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-[0.2em] text-knotText hover:text-knotOlive py-2 font-medium">Details</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-[0.2em] text-knotText hover:text-knotOlive py-2 font-medium">Q + A</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-24 sm:pt-28 pb-16 px-4 text-center overflow-hidden bg-knotBg">
+        <div class="max-w-4xl mx-auto mb-6 sm:mb-8 px-4">
+            <img src="https://media-api.xogrp.com/images/13481c4a-0d4b-4419-ab89-f9ac56136403~rt_auto-rs_2880.h" 
+                 alt="Floral Theme Header" 
+                 class="w-full max-h-56 sm:max-h-72 object-contain mx-auto"
+                 onerror="this.style.display='none'">
+        </div>
+
+        <div class="max-w-3xl mx-auto z-10">
+            <div class="mb-4 inline-block">
+                <span class="font-cormorant text-4xl sm:text-5xl text-knotOlive tracking-widest block font-light">J &amp; P</span>
+                <div class="w-12 h-px bg-knotGold mx-auto mt-2"></div>
+            </div>
+
+            <p class="text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase text-knotMuted mb-3">
+                We're Getting Engaged
+            </p>
+
+            <h1 class="font-cormorant text-5xl sm:text-7xl lg:text-8xl font-normal tracking-wide text-knotText mb-4">
+                Julia &amp; Peter
+            </h1>
+            
+            <p class="font-cormorant text-xl sm:text-3xl italic text-knotOlive font-normal mb-8">
+                Saturday, January 2, 2027 • Cairo, Egypt
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="my-8 sm:my-10 bg-white p-6 sm:p-8 rounded-sm border border-knotBorder max-w-lg mx-auto shadow-sm">
+                <p class="text-[11px] font-bold uppercase tracking-[0.25em] text-knotMuted mb-4">Countdown To Our Day</p>
+                <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
+                    <div class="p-2">
+                        <span id="days" class="font-cormorant text-3xl sm:text-5xl text-knotText font-normal">00</span>
+                        <span class="block text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-knotMuted mt-1">Days</span>
+                    </div>
+                    <div class="p-2">
+                        <span id="hours" class="font-cormorant text-3xl sm:text-5xl text-knotText font-normal">00</span>
+                        <span class="block text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-knotMuted mt-1">Hours</span>
+                    </div>
+                    <div class="p-2">
+                        <span id="minutes" class="font-cormorant text-3xl sm:text-5xl text-knotText font-normal">00</span>
+                        <span class="block text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-knotMuted mt-1">Mins</span>
+                    </div>
+                    <div class="p-2">
+                        <span id="seconds" class="font-cormorant text-3xl sm:text-5xl text-knotText font-normal">00</span>
+                        <span class="block text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-knotMuted mt-1">Secs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RSVP Button -->
+            <div class="mt-8">
+                <button onclick="openRsvpModal()" class="inline-flex items-center justify-center bg-knotOlive hover:bg-[#4a5238] text-white font-medium text-xs uppercase tracking-[0.25em] px-10 py-4 min-h-[48px] rounded-sm transition-all duration-300 shadow-sm">
+                    RSVP HERE <i class="fa-solid fa-arrow-right ml-3 text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="max-w-xs mx-auto py-4 text-center">
+        <span class="text-knotGold font-cormorant text-2xl font-light">✦ ✦ ✦</span>
+    </div>
+
+    <!-- EVENT DETAILS SECTION -->
+    <section id="details" class="py-16 sm:py-20 px-4 sm:px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-knotMuted mb-2">The Celebration</p>
+            <h2 class="font-cormorant text-4xl sm:text-6xl font-normal text-knotText">Event Details</h2>
+            <div class="w-12 h-px bg-knotGold mx-auto mt-4"></div>
+        </div>
+
+        <div class="bg-white rounded-sm border border-knotBorder p-8 sm:p-12 shadow-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6 text-center md:text-left">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-knotOlive block mb-1">When</span>
+                        <h3 class="font-cormorant text-3xl text-knotText font-normal">Saturday, January 2, 2027</h3>
+                        <p class="text-sm font-medium text-knotMuted mt-1">3:00 PM – 10:00 PM</p>
+                    </div>
+
+                    <div class="w-full h-px bg-knotBorder"></div>
+
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-knotOlive block mb-1">Where</span>
+                        <h3 class="font-cormorant text-3xl text-knotText font-normal mb-2">Tenaya Riverside Dining</h3>
+                        <p class="text-xs sm:text-sm text-knotMuted leading-relaxed">
+                            Near Maadi Sporting &amp; Yacht Club, 1 Corniche, Maadi Al Khabiri Ash Sharqeyah, Maadi, Cairo Governorate 11728, Egypt
+                        </p>
+                    </div>
+
+                    <div class="w-full h-px bg-knotBorder"></div>
+
+                    <div class="bg-knotLightSage p-5 rounded-sm border border-knotOlive/20">
+                        <p class="font-cormorant italic text-base text-knotText leading-relaxed">
+                            "Attire: Make sure to grab your coats to enjoy the sunset by the riverside"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="relative w-full h-[260px] sm:h-[320px] rounded-sm overflow-hidden border border-knotBorder bg-knotBg">
+                        <iframe 
+                            title="Tenaya Riverside Dining Map Pin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            loading="lazy" 
+                            allowfullscreen
+                            src="https://maps.google.com/maps?q=Tenaya+Riverside+Dining,+1+Corniche,+Maadi,+Cairo+Governorate,+Egypt&t=&z=16&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tenaya+Riverside+Dining+Maadi+Cairo" target="_blank" rel="noopener noreferrer" class="w-full bg-white hover:bg-knotBg text-knotText font-semibold text-xs uppercase tracking-[0.2em] px-6 py-4 min-h-[48px] flex items-center justify-center border border-knotBorder rounded-sm transition-colors text-center shadow-sm">
+                        Get Directions <i class="fa-solid fa-location-arrow ml-2 text-knotOlive"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A SECTION -->
+    <section id="faq" class="py-16 sm:py-20 px-4 sm:px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-knotMuted mb-2">Everything You Need To Know</p>
+            <h2 class="font-cormorant text-4xl sm:text-6xl font-normal text-knotText">Questions &amp; Answers</h2>
+            <div class="w-12 h-px bg-knotGold mx-auto mt-4"></div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-white rounded-sm border border-knotBorder">
+                <button class="w-full px-6 py-5 min-h-[52px] text-left font-cormorant text-xl sm:text-2xl font-normal text-knotText flex justify-between items-center focus:outline-none" onclick="toggleAccordion(1)">
+                    <span>Where can we park?</span>
+                    <i id="acc-icon-1" class="fa-solid fa-plus text-knotOlive text-sm transition-transform duration-300 ml-4 shrink-0"></i>
+                </button>
+                <div id="acc-content-1" class="accordion-content px-6 text-xs sm:text-sm text-knotMuted font-normal leading-relaxed">
+                    <p class="pb-6 pt-2 border-t border-knotBorder/50">Parking service (with Valet) is offered at the venue.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-sm border border-knotBorder">
+                <button class="w-full px-6 py-5 min-h-[52px] text-left font-cormorant text-xl sm:text-2xl font-normal text-knotText flex justify-between items-center focus:outline-none" onclick="toggleAccordion(2)">
+                    <span>What time should I arrive at the ceremony?</span>
+                    <i id="acc-icon-2" class="fa-solid fa-plus text-knotOlive text-sm transition-transform duration-300 ml-4 shrink-0"></i>
+                </button>
+                <div id="acc-content-2" class="accordion-content px-6 text-xs sm:text-sm text-knotMuted font-normal leading-relaxed">
+                    <p class="pb-6 pt-2 border-t border-knotBorder/50">Please make sure to arrive at 3PM sharp</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-sm border border-knotBorder">
+                <button class="w-full px-6 py-5 min-h-[52px] text-left font-cormorant text-xl sm:text-2xl font-normal text-knotText flex justify-between items-center focus:outline-none" onclick="toggleAccordion(3)">
+                    <span>Is the engagement indoors or outdoors?</span>
+                    <i id="acc-icon-3" class="fa-solid fa-plus text-knotOlive text-sm transition-transform duration-300 ml-4 shrink-0"></i>
+                </button>
+                <div id="acc-content-3" class="accordion-content px-6 text-xs sm:text-sm text-knotMuted font-normal leading-relaxed">
+                    <p class="pb-6 pt-2 border-t border-knotBorder/50">Both !</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-sm border border-knotBorder">
+                <button class="w-full px-6 py-5 min-h-[52px] text-left font-cormorant text-xl sm:text-2xl font-normal text-knotText flex justify-between items-center focus:outline-none" onclick="toggleAccordion(4)">
+                    <span>Can I take pictures during the ceremony?</span>
+                    <i id="acc-icon-4" class="fa-solid fa-plus text-knotOlive text-sm transition-transform duration-300 ml-4 shrink-0"></i>
+                </button>
+                <div id="acc-content-4" class="accordion-content px-6 text-xs sm:text-sm text-knotMuted font-normal leading-relaxed">
+                    <p class="pb-6 pt-2 border-t border-knotBorder/50">Please ! And make sure to share them with us. Remember to ask for the QR code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP CALL TO ACTION -->
+    <section class="py-20 bg-knotLightSage text-center px-4 border-t border-b border-knotBorder">
+        <div class="max-w-xl mx-auto">
+            <span class="font-cormorant italic text-2xl text-knotOlive block mb-2">Are You Joining Us?</span>
+            <h2 class="font-cormorant text-4xl sm:text-6xl font-normal text-knotText mb-4">RSVP</h2>
+            <p class="text-xs sm:text-sm text-knotMuted font-normal tracking-wide mb-8 uppercase">
+                Kindly respond to let us know if you'll be celebrating with us!
+            </p>
+
+            <button onclick="openRsvpModal()" class="inline-flex items-center justify-center bg-knotOlive hover:bg-[#4a5238] text-white font-medium text-xs uppercase tracking-[0.25em] px-12 py-4 min-h-[50px] rounded-sm transition-all duration-300 shadow-sm">
+                Submit RSVP
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-12 pb-0 bg-knotBg text-center overflow-hidden border-t border-knotBorder/40">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="font-cormorant text-4xl text-knotText font-normal mb-2">Julia &amp; Peter</h3>
+            <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-knotMuted mb-6">January 2, 2027 • Cairo, Egypt</p>
+            <p class="text-xs text-knotMuted mb-6">With Love, Julia &amp; Peter</p>
+        </div>
+
+        <div class="w-full max-w-2xl mx-auto pt-2">
+            <img src="https://media-api.xogrp.com/images/45a9ac2b-fe04-4796-a21d-feae7f6bb33c~rt_auto-rs_2880.h" 
+                 alt="Floral Theme Footer" 
+                 class="w-full h-auto max-h-36 sm:max-h-48 object-contain mx-auto block opacity-90"
+                 onerror="this.style.display='none'">
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE KNOT RSVP MODAL -->
+    <div id="rsvp-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div class="bg-white rounded-md border border-knotBorder w-full max-w-xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-5 border-b border-knotBorder flex justify-between items-center bg-knotBg">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-knotOlive block">Julia &amp; Peter</span>
+                    <h3 class="font-cormorant text-2xl font-normal text-knotText">RSVP Process</h3>
+                </div>
+                <button onclick="closeRsvpModal()" class="text-knotMuted hover:text-knotText p-2 focus:outline-none" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Area -->
+            <div class="p-6 overflow-y-auto flex-1">
+                
+                <!-- STEP 1: GUEST LIST SEARCH -->
+                <div id="rsvp-step-1" class="space-y-6">
+                    <div class="text-center max-w-md mx-auto">
+                        <i class="fa-regular fa-envelope-open text-knotOlive text-3xl mb-3"></i>
+                        <h4 class="font-cormorant text-3xl font-normal text-knotText">Find Your Invitation</h4>
+                        <p class="text-xs text-knotMuted mt-1">Please enter your full name as written on your invitation to respond.</p>
+                    </div>
+
+                    <div class="max-w-md mx-auto space-y-3">
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-knotMuted/60 text-sm"></i>
+                            <input 
+                                type="text" 
+                                id="guest-search-input"
+                                placeholder="e.g., Peter, Julia, John..." 
+                                class="w-full pl-11 pr-4 py-3.5 border border-knotBorder rounded-sm text-sm focus:outline-none focus:border-knotOlive focus:ring-1 focus:ring-knotOlive/30 bg-knotBg/50 text-knotText transition-all"
+                                oninput="handleGuestSearch()"
+                            />
+                        </div>
+                        <div id="search-feedback" class="text-xs text-center text-rose-500 font-medium hidden"></div>
+                    </div>
+
+                    <!-- Search Results -->
+                    <div id="search-results" class="max-w-md mx-auto space-y-2 hidden"></div>
+                </div>
+
+                <!-- STEP 2: MULTI-GUEST RESPONSE CARD -->
+                <div id="rsvp-step-2" class="space-y-6 hidden">
+                    <div class="border-b border-knotBorder pb-4 text-center">
+                        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-knotOlive mb-1">Responding For</p>
+                        <h4 id="party-name-heading" class="font-cormorant text-3xl text-knotText">Party Name</h4>
+                    </div>
+
+                    <!-- Individual Guest Response Cards -->
+                    <div id="guests-response-container" class="space-y-6"></div>
+
+                    <!-- Message / Note for Couple -->
+                    <div class="pt-4 border-t border-knotBorder">
+                        <label for="couple-note" class="block text-xs font-semibold uppercase tracking-wider text-knotMuted mb-2">
+                            Send a note to Julia &amp; Peter (Optional)
+                        </label>
+                        <textarea 
+                            id="couple-note" 
+                            rows="2" 
+                            placeholder="Share your warm wishes or questions..."
+                            class="w-full p-3 border border-knotBorder rounded-sm text-xs focus:outline-none focus:border-knotOlive bg-knotBg/30 text-knotText"
+                        ></textarea>
+                    </div>
+
+                    <div class="flex gap-3 pt-2">
+                        <button onclick="switchRsvpStep(1)" class="w-1/3 border border-knotBorder text-knotMuted hover:text-knotText py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors">
+                            Back
+                        </button>
+                        <button onclick="submitRsvpForm()" class="w-2/3 bg-knotOlive hover:bg-[#4a5238] text-white py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">
+                            Submit RSVP
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: CONFIRMATION -->
+                <div id="rsvp-step-3" class="space-y-6 text-center py-4 hidden">
+                    <div class="w-16 h-16 bg-knotLightSage text-knotOlive rounded-full flex items-center justify-center mx-auto text-2xl border border-knotOlive/30">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-cormorant text-4xl font-normal text-knotText mb-2">Thank You!</h4>
+                        <p class="text-xs text-knotMuted max-w-sm mx-auto">Your response has been successfully recorded and sent to Julia &amp; Peter.</p>
+                    </div>
+
+                    <div id="confirmation-summary-card" class="bg-knotBg border border-knotBorder p-4 rounded-sm text-left max-w-md mx-auto space-y-3"></div>
+
+                    <button onclick="closeRsvpModal()" class="bg-knotOlive hover:bg-[#4a5238] text-white px-8 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT & LOGIC -->
+    <script>
+        // GOOGLE SHEET WEBAPP DISPATCH ENDPOINT
+        const GOOGLE_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzM2uZue9hPSG-DkwPM63rwMZ-TiHDDOtrE4DLwKkxAqndZbLg9UOETkMzbX_-OCpxC/exec";
+
+        // COMPLETE 122-GUEST DATABASE EMBEDDED
+        const rawGuestNames = [
+            "Anastas Pirinis & Nada Ebeid",
+            "Elise Pirinis & Marc Aphramian",
+            "Taya Pirinis & Bassem Rafla",
+            "Daniel Pirinis",
+            "Alexandre Pirinis",
+            "Dina Kozman & Cherif Ebeid",
+            "Karim Ebeid",
+            "Naila Ebeid",
+            "Adam Ebeid",
+            "Nadim Ebeid",
+            "Carole Zaccar & Neemattalah Issa",
+            "Catherine Issa & Rafik Mourad",
+            "Madeleine Diab & Alain Issa",
+            "Maha Mounir & Rafla Mikhael",
+            "Maria Rafla",
+            "Eddie Rafla",
+            "Karim Rafla",
+            "Chantal Cassis",
+            "Marc Matta",
+            "Paola Matta",
+            "Daniela Matta",
+            "Jacqueline Zaccar & Youssef Iskander",
+            "Christianne Iskander",
+            "Marianne Iskander",
+            "Emily Lawendy",
+            "Melody Adly & Sandro Cannan",
+            "Alia Tamer",
+            "Nachaat Fahmy",
+            "Ramy Raymond",
+            "Sylvia Sameh",
+            "Mariam Sherif & Daniel Bassili",
+            "Jessica Koumrouian & Michel Moussally",
+            "Maura Rofail & Jean Azer",
+            "Pierre Azer",
+            "Liza Youssef & Pierre Khashram",
+            "Youssef Amgad",
+            "Karen Anis",
+            "Taya Habib & Dior Assaf",
+            "Hana Mohamed & Hicham El Garhy",
+            "Karim Elias",
+            "Mahmoud El Kerdany",
+            "Michel Hakim",
+            "Monelle Janho & Nader Issa",
+            "Mohamed Hossam & Alia Sameh",
+            "Mireille Farid",
+            "Rama El Sabban",
+            "Yasmine el halafawy & Eslam Yasser",
+            "Nevine moussally & Antoine Hubert",
+            "Myriam Azer & Said Azer",
+            "Claire Haddad & Nabil Khedr",
+            "Viviane Bayouk & Maryse Khedr",
+            "Mathieu Khedr & Monika Khedr",
+            "Dina Habashi & Adel goubran",
+            "Marianne El-Ghazawy & Alain Aprahamian",
+            "Julia Aprahamian",
+            "Sherif Bassily",
+            "Entessar SaadAllah & Raymond Masoud",
+            "Matthew Raymond",
+            "Simone Haddad & Ramez Amin",
+            "Heba Amin & Magued Amin",
+            "Rania Amin",
+            "Mireille Milad",
+            "Salwa Habashi",
+            "Aimee Ishak & Sherif Boghdady",
+            "Shams Sadek Homsi & Ramy Homsi",
+            "Freddy Hamawy",
+            "Karim Habib",
+            "Nour Saqr & Abdelwahab Abdelaziz",
+            "Adham tarek",
+            "Georges mamdouh",
+            "Mina mamdouh",
+            "Georges magued",
+            "Torres",
+            "Aly Mohamed",
+            "Karim ElSayed",
+            "Habiba El-Meligy & Ahmed El-Meligy",
+            "Moheb Ghali",
+            "Youssef magued",
+            "Marc sameh",
+            "Joyce Doss & Hazem Hanna",
+            "Mariam Refky",
+            "Farah Hani",
+            "Nada Rashed & Ahmed Samih",
+            "Youssef Tawfik",
+            "Anne-Marie Issa",
+            "Sherine Mishriki & Rawi Camel-Toueg",
+            "Sherine Ebeid",
+            "David Daoud",
+            "Emmanuelle Matta",
+            "Fadi Matta",
+            "Mariam Morcos",
+            "Sylvia Oriol & Josep Oriol",
+            "Sara Safwat",
+            "Murthy Botcha",
+            "Perla Saade & Chadi soudeiha & Alessia Soudeiha",
+            "Alice Soudeiha & Steven Bselis",
+            "Christianne Khedr & Rafik Saheb",
+            "Nathalie Saheb & Julien Deb & Sophia Deb & Clara Deb",
+            "Sandra Saheb & Sacha Morcos & Emma Morcos & James Morcos",
+            "Stephanie Saheb & Fadi Hammal & Zoe Hammal & Olivier Hammal",
+            "Ghada Haddad & Alex Boyadjian & Kristy Boyadjian & Kelly Boyadjian",
+            "Margarita Paraskevopoulos & Fadi Haddad & Cassandra Haddad & Christina Haddad",
+            "Gretta Haddad",
+            "Solange Massaad",
+            "Simon Asmar",
+            "Monique Schakkal & Karl Aprahamian",
+            "Robert Aprahamian",
+            "Philippe Aprahamian",
+            "Andre Wakil",
+            "Tamara Wakil & Jack Minnetian",
+            "Nairy Avedissian & Georges Wakil",
+            "Dana Doss & Rafik Doss",
+            "Michelle Asmar & Tom Mahut",
+            "Farouk Nasr",
+            "Tarek Radwan",
+            "Joy Ibrahim",
+            "Catalina Sudah & Naim Karkour",
+            "Stephanie Shammas",
+            "Manuela Doss & Julien Akel",
+            "Anthony Samaha",
+            "Georges Doss",
+            "Morgan Rousselle"
+        ];
+
+        // Parse party string into discrete guest names
+        const initialGuestDatabase = rawGuestNames.map((rawStr, index) => {
+            const members = rawStr.split('&').map(m => m.trim()).filter(Boolean);
+            return {
+                id: index + 1,
+                raw: rawStr,
+                members: members
+            };
+        });
+
+        let rsvpDatabase = [];
+        let activeParty = null;
+
+        function initRsvpData() {
+            const saved = localStorage.getItem('pj_rsvp_db_v2');
+            if (saved) {
+                try { rsvpDatabase = JSON.parse(saved); } catch(e) { rsvpDatabase = [...initialGuestDatabase]; }
+            } else {
+                rsvpDatabase = JSON.parse(JSON.stringify(initialGuestDatabase));
+            }
+        }
+        initRsvpData();
+
+        function saveRsvpDatabase() {
+            localStorage.setItem('pj_rsvp_db_v2', JSON.stringify(rsvpDatabase));
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Live Countdown
+        const targetDate = new Date("January 2, 2027 15:00:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = String(days).padStart(2, '0');
+                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById("countdown").innerHTML = "<p class='font-cormorant text-2xl text-knotOlive font-normal'>The Celebration Has Begun!</p>";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Accordion Toggle
+        function toggleAccordion(index) {
+            const content = document.getElementById(`acc-content-${index}`);
+            const icon = document.getElementById(`acc-icon-${index}`);
+            const isOpen = content.classList.contains('active');
+
+            document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('[id^="acc-icon-"]').forEach(el => {
+                el.classList.remove('fa-minus');
+                el.classList.add('fa-plus');
+            });
+
+            if (!isOpen) {
+                content.classList.add('active');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+
+        // RSVP Modal Handlers
+        function openRsvpModal() {
+            const modal = document.getElementById('rsvp-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            switchRsvpStep(1);
+            document.getElementById('guest-search-input').value = '';
+            document.getElementById('search-results').classList.add('hidden');
+            document.getElementById('search-feedback').classList.add('hidden');
+        }
+
+        function closeRsvpModal() {
+            const modal = document.getElementById('rsvp-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function switchRsvpStep(step) {
+            document.getElementById('rsvp-step-1').classList.add('hidden');
+            document.getElementById('rsvp-step-2').classList.add('hidden');
+            document.getElementById('rsvp-step-3').classList.add('hidden');
+            document.getElementById(`rsvp-step-${step}`).classList.remove('hidden');
+        }
+
+        // Search logic - Min 3 characters required
+        function handleGuestSearch() {
+            const query = document.getElementById('guest-search-input').value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+            const feedbackContainer = document.getElementById('search-feedback');
+
+            feedbackContainer.classList.add('hidden');
+            resultsContainer.innerHTML = '';
+
+            if (query.length < 3) {
+                resultsContainer.classList.add('hidden');
+                return;
+            }
+
+            const matches = rsvpDatabase.filter(party => {
+                return party.raw.toLowerCase().includes(query) || 
+                       party.members.some(m => m.toLowerCase().includes(query));
+            });
+
+            if (matches.length === 0) {
+                feedbackContainer.innerText = "We couldn't find your name on the guest list. Please check the spelling.";
+                feedbackContainer.classList.remove('hidden');
+                resultsContainer.classList.add('hidden');
+                return;
+            }
+
+            resultsContainer.classList.remove('hidden');
+            matches.forEach(party => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 bg-knotBg hover:bg-knotLightSage border border-knotBorder hover:border-knotOlive/40 rounded-sm flex justify-between items-center transition-all group';
+                btn.innerHTML = `
+                    <div>
+                        <div class="font-cormorant text-xl font-semibold text-knotText group-hover:text-knotOlive transition-colors">
+                            ${escapeHtml(party.raw)}
+                        </div>
+                        <div class="text-[10px] text-knotMuted uppercase tracking-wider mt-0.5">
+                            ${party.members.length === 1 ? '1 Guest Invitation' : `Party of ${party.members.length}`}
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-knotMuted group-hover:text-knotOlive transition-colors"></i>
+                `;
+                btn.onclick = () => selectPartyForRsvp(party);
+                resultsContainer.appendChild(btn);
+            });
+        }
+
+        function selectPartyForRsvp(party) {
+            activeParty = {
+                id: party.id,
+                partyName: party.raw,
+                guests: party.members.map(member => ({
+                    name: member,
+                    attending: true,
+                    meal: 'Chicken/Beef Main Dish',
+                    dietary: ''
+                }))
+            };
+
+            document.getElementById('party-name-heading').innerText = party.raw;
+            renderGuestsResponseCards();
+            switchRsvpStep(2);
+        }
+
+        function renderGuestsResponseCards() {
+            const container = document.getElementById('guests-response-container');
+            container.innerHTML = '';
+
+            activeParty.guests.forEach((guest, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-knotBg border border-knotBorder p-5 rounded-sm space-y-4';
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-knotBorder/60 pb-3">
+                        <span class="font-cormorant text-2xl font-normal text-knotText">${escapeHtml(guest.name)}</span>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-knotMuted">Guest ${index + 1}</span>
+                    </div>
+
+                    <!-- Attendance Toggle Buttons -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-knotMuted mb-2">Will you be attending?</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button 
+                                type="button"
+                                onclick="setGuestAttendance(${index}, true)" 
+                                id="att-yes-${index}"
+                                class="py-3 px-4 text-xs font-semibold uppercase tracking-wider rounded-sm border ${guest.attending ? 'bg-knotOlive text-white border-knotOlive' : 'bg-white text-knotText border-knotBorder hover:bg-knotBg'} transition-all flex items-center justify-center gap-2"
+                            >
+                                <i class="fa-solid fa-check text-xs"></i> Joyfully Accept
+                            </button>
+                            <button 
+                                type="button"
+                                onclick="setGuestAttendance(${index}, false)" 
+                                id="att-no-${index}"
+                                class="py-3 px-4 text-xs font-semibold uppercase tracking-wider rounded-sm border ${!guest.attending ? 'bg-stone-700 text-white border-stone-700' : 'bg-white text-knotText border-knotBorder hover:bg-knotBg'} transition-all flex items-center justify-center gap-2"
+                            >
+                                <i class="fa-solid fa-xmark text-xs"></i> Regretfully Decline
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Meal & Dietary Options -->
+                    <div id="meal-section-${index}" class="space-y-4 pt-2 ${guest.attending ? '' : 'hidden'}">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-knotMuted mb-2">Select Main Dish</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button 
+                                    type="button" 
+                                    onclick="setGuestMeal(${index}, 'Chicken/Beef Main Dish')"
+                                    id="meal-btn-${index}-chicken"
+                                    class="p-3 text-left border rounded-sm transition-all flex items-center justify-between ${guest.meal === 'Chicken/Beef Main Dish' ? 'bg-white border-knotOlive ring-1 ring-knotOlive' : 'bg-white/60 border-knotBorder hover:border-knotOlive/50'}"
+                                >
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-drumstick-bite text-knotOlive text-sm"></i>
+                                        <span class="text-xs font-semibold text-knotText">Chicken/Beef Main Dish</span>
+                                    </div>
+                                    <i class="fa-solid fa-circle-check text-knotOlive text-sm ${guest.meal === 'Chicken/Beef Main Dish' ? 'block' : 'hidden'}"></i>
+                                </button>
+
+                                <button 
+                                    type="button" 
+                                    onclick="setGuestMeal(${index}, 'Fish Main Dish')"
+                                    id="meal-btn-${index}-fish"
+                                    class="p-3 text-left border rounded-sm transition-all flex items-center justify-between ${guest.meal === 'Fish Main Dish' ? 'bg-white border-knotOlive ring-1 ring-knotOlive' : 'bg-white/60 border-knotBorder hover:border-knotOlive/50'}"
+                                >
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-fish text-knotOlive text-sm"></i>
+                                        <span class="text-xs font-semibold text-knotText">Fish Main Dish</span>
+                                    </div>
+                                    <i class="fa-solid fa-circle-check text-knotOlive text-sm ${guest.meal === 'Fish Main Dish' ? 'block' : 'hidden'}"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-knotMuted mb-1.5">Dietary Restrictions or Allergies</label>
+                            <input 
+                                type="text" 
+                                placeholder="e.g., Nut allergy, Vegetarian, Gluten-free..."
+                                value="${escapeHtml(guest.dietary)}"
+                                onchange="updateGuestDietary(${index}, this.value)"
+                                class="w-full p-2.5 border border-knotBorder rounded-sm text-xs bg-white focus:outline-none focus:border-knotOlive text-knotText"
+                            />
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function setGuestAttendance(index, isAttending) {
+            activeParty.guests[index].attending = isAttending;
+            renderGuestsResponseCards();
+        }
+
+        function setGuestMeal(index, mealChoice) {
+            activeParty.guests[index].meal = mealChoice;
+            renderGuestsResponseCards();
+        }
+
+        function updateGuestDietary(index, val) {
+            activeParty.guests[index].dietary = val;
+        }
+
+        function submitRsvpForm() {
+            if (!activeParty) return;
+
+            activeParty.note = document.getElementById('couple-note').value.trim();
+
+            const idx = rsvpDatabase.findIndex(p => p.id === activeParty.id);
+            if (idx !== -1) {
+                rsvpDatabase[idx].submitted = true;
+                rsvpDatabase[idx].submissionData = activeParty;
+            }
+            saveRsvpDatabase();
+
+            // Post live response to Google Script Web App
+            if (GOOGLE_SCRIPT_WEBAPP_URL) {
+                fetch(GOOGLE_SCRIPT_WEBAPP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(activeParty)
+                }).catch(err => console.error("Error submitting to Google Sheet:", err));
+            }
+
+            renderConfirmationSummary();
+            switchRsvpStep(3);
+        }
+
+        function renderConfirmationSummary() {
+            if (!activeParty) return;
+
+            const card = document.getElementById('confirmation-summary-card');
+            let html = `<div class="font-cormorant text-2xl font-semibold text-knotText mb-2 border-b border-knotBorder pb-2">${escapeHtml(activeParty.partyName)}</div>`;
+
+            activeParty.guests.forEach(guest => {
+                const statusBadge = guest.attending 
+                    ? '<span class="text-[10px] font-bold uppercase tracking-wider text-knotOlive bg-knotLightSage px-2 py-0.5 rounded-sm">Joyfully Accepts</span>' 
+                    : '<span class="text-[10px] font-bold uppercase tracking-wider text-stone-600 bg-stone-100 px-2 py-0.5 rounded-sm">Regretfully Declines</span>';
+
+                html += `
+                    <div class="text-xs space-y-1 py-1.5 border-b border-knotBorder/50 last:border-none">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-knotText">${escapeHtml(guest.name)}</span>
+                            ${statusBadge}
+                        </div>
+                        ${guest.attending ? `
+                            <div class="text-knotMuted flex items-center gap-1.5 mt-1">
+                                <i class="fa-solid fa-utensils text-[10px] text-knotOlive"></i>
+                                <span><strong>Meal:</strong> ${escapeHtml(guest.meal || 'Chicken/Beef Main Dish')}</span>
+                            </div>
+                            ${guest.dietary ? `<div class="text-knotMuted"><strong>Dietary:</strong> ${escapeHtml(guest.dietary)}</div>` : ''}
+                        ` : ''}
+                    </div>
+                `;
+            });
+
+            if (activeParty.note) {
+                html += `
+                    <div class="pt-2 text-xs text-knotMuted italic border-t border-knotBorder mt-2">
+                        <strong>Note:</strong> "${escapeHtml(activeParty.note)}"
+                    </div>
+                `;
+            }
+
+            card.innerHTML = html;
+        }
+
+        document.getElementById('rsvp-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRsvpModal();
+            }
+        });
+    </script>
+</body>
+</html>
